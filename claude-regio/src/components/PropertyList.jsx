@@ -1,39 +1,11 @@
 import React, { useState } from 'react'
 import PropertyCard from './PropertyCard'
 import SearchForm from './SearchForm'
+import { propertiesData } from './propertiesData'
 
 function PropertyList() {
-    const initialProperties = [
-        {
-            id: 1,
-            title: 'Casa moderna',
-            price: 200000,
-            location: 'Ciudad A',
-            description: 'Hermosa casa moderna con amplios espacios y mucha luz natural.',
-            features: ['3 habitaciones', '2 baños', 'Jardín', 'Garaje'],
-            contact: 'agente1@regio.com'
-        },
-        {
-            id: 2,
-            title: 'Apartamento céntrico',
-            price: 150000,
-            location: 'Ciudad B',
-            description: 'Apartamento en el corazón de la ciudad, cerca de todas las comodidades.',
-            features: ['2 habitaciones', '1 baño', 'Balcón', 'Ascensor'],
-            contact: 'agente2@regio.com'
-        },
-        {
-            id: 3,
-            title: 'Chalet con jardín',
-            price: 300000,
-            location: 'Ciudad C',
-            description: 'Espacioso chalet con gran jardín, perfecto para familias.',
-            features: ['4 habitaciones', '3 baños', 'Piscina', 'Terraza'],
-            contact: 'agente3@regio.com'
-        },
-    ]
 
-    const [properties, setProperties] = useState(initialProperties)
+    const [properties, setProperties] = useState(propertiesData)
 
     const handleSearch = (searchTerm) => {
         const filteredProperties = initialProperties.filter(

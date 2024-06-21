@@ -1,45 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { propertiesData } from './propertiesData'
 
 function PropertyDetails() {
   const [property, setProperty] = useState(null)
   const { id } = useParams()
 
   useEffect(() => {
-    // Aquí simularemos una llamada a una API
     const fetchProperty = () => {
-      // Esta es una simulación. En una app real, aquí harías una llamada a tu API
-      const mockProperties = [
-        { 
-          id: '1', 
-          title: 'Casa moderna', 
-          price: 200000, 
-          location: 'Ciudad A',
-          description: 'Hermosa casa moderna con amplios espacios y mucha luz natural.',
-          features: ['3 habitaciones', '2 baños', 'Jardín', 'Garaje'],
-          contact: 'agente1@regio.com'
-        },
-        { 
-          id: '2', 
-          title: 'Apartamento céntrico', 
-          price: 150000, 
-          location: 'Ciudad B',
-          description: 'Apartamento en el corazón de la ciudad, cerca de todas las comodidades.',
-          features: ['2 habitaciones', '1 baño', 'Balcón', 'Ascensor'],
-          contact: 'agente2@regio.com'
-        },
-        { 
-          id: '3', 
-          title: 'Chalet con jardín', 
-          price: 300000, 
-          location: 'Ciudad C',
-          description: 'Espacioso chalet con gran jardín, perfecto para familias.',
-          features: ['4 habitaciones', '3 baños', 'Piscina', 'Terraza'],
-          contact: 'agente3@regio.com'
-        },
-      ]
-
-      const foundProperty = mockProperties.find(p => p.id === id)
+      const foundProperty = propertiesData.find(p => p.id === id)
       setProperty(foundProperty)
     }
 
@@ -52,6 +21,7 @@ function PropertyDetails() {
     <div className="bg-white shadow-lg rounded-lg overflow-hidden">
       <div className="p-6">
         <h2 className="text-3xl font-bold text-airbnb-dark-gray mb-4">{property.title}</h2>
+        <img src={property.image} alt="Casa Quintanilla" style={{ width: '300px', height: 'auto' }} />
         <p className="text-2xl text-airbnb-red mb-4">${property.price.toLocaleString()}</p>
         <p className="text-xl text-airbnb-dark-gray mb-4">{property.location}</p>
         <div className="mb-4">
@@ -70,6 +40,10 @@ function PropertyDetails() {
           <div>
             <h3 className="text-lg font-semibold text-airbnb-dark-gray mb-2">Contacto</h3>
             <p className="text-airbnb-dark-gray">{property.contact}</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-airbnb-dark-gray mb-2">Tipo</h3>
+            <p className="text-airbnb-dark-gray">{property.type}</p>
           </div>
         </div>
       </div>

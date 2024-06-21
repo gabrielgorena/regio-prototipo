@@ -6,6 +6,7 @@ function PropertyCard({ property }) {
     <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
       <div className="p-4">
         <h3 className="font-bold text-xl mb-2 text-airbnb-dark-gray">{property.title}</h3>
+        <img src={property.image} alt="Casa Quintanilla" style={{ width: '100px', height: 'auto' }}/>
         <p className="text-airbnb-dark-gray text-base mb-2">Precio: ${property.price.toLocaleString()}</p>
         <p className="text-airbnb-dark-gray text-base mb-4">Ubicación: {property.location}</p>
         <Link 
